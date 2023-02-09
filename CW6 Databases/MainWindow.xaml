@@ -6,7 +6,16 @@
         xmlns:local="clr-namespace:CW6_Databases"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Name="grid" ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="SeeAssetsButton" Grid.Column="0" Content="See Assets" Click="SeeAssetsButton_Click"/>
+        <TextBlock x:Name="Output" TextWrapping="NoWrap" Grid.Column="1" Grid.RowSpan="2" Grid.Row="1"/>
     </Grid>
 </Window>
