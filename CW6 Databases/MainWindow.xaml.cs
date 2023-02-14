@@ -30,18 +30,33 @@ namespace CW6_Databases
             cn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database1.accdb");
         }
 
-        private void SeeAssetsButton_Click(object sender, RoutedEventArgs e)
+        private string ReadFromDB(string field, string table)
         {
-            string query = "select* from Assets";
+            string query = "select " + field + " from " + table;
             OleDbCommand cmd = new OleDbCommand(query, cn);
             cn.Open();
             OleDbDataReader read = cmd.ExecuteReader();
             string data = "";
-            while(read.Read())
+            while (read.Read())
             {
                 data += read[0].ToString() + "\n";
             }
-            Output.Text = data;
+            cn.Close();
+            return data;
+        }
+
+        private void SeeAssetsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Output_Left.Text = ReadFromDB("EmployeeID", "Assets");
+            Output_Midd.Text = ReadFromDB("AssetID", "Assets");
+            Output_Right.Text = ReadFromDB("Description", "Assets");
+        }
+
+        private void SeeEmployeesButton_Click(object sender, RoutedEventArgs e)
+        {
+            Output_Left.Text = ReadFromDB("EmployeeID", "Employees");
+            Output_Midd.Text = ReadFromDB("LastName", "Employees");
+            Output_Right.Text = ReadFromDB("FirstName", "Employees");
         }
     }
 }

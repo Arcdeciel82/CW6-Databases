@@ -6,16 +6,21 @@
         xmlns:local="clr-namespace:CW6_Databases"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Name="grid" ShowGridLines="True">
+    <Grid Name="grid" ShowGridLines="False">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="SeeAssetsButton" Grid.Column="0" Content="See Assets" Click="SeeAssetsButton_Click"/>
-        <TextBlock x:Name="Output" TextWrapping="NoWrap" Grid.Column="1" Grid.RowSpan="2" Grid.Row="1"/>
+        <Button x:Name="SeeAssetsButton" Grid.Column="0" Grid.Row="0" Content="See Assets" Click="SeeAssetsButton_Click" Height="20" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button x:Name="SeeEmployeesButton" Grid.Column="0" Grid.Row="1" Content="See Employees" Click="SeeEmployeesButton_Click" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
+        <TextBlock x:Name="Output_Left" TextWrapping="NoWrap" Grid.Column="1" Grid.RowSpan="2" Grid.Row="0" Margin="5,0,5,0"/>
+        <TextBlock x:Name="Output_Midd" TextWrapping="NoWrap" Grid.Column="2" Grid.RowSpan="2" Grid.Row="0" Margin="5,0,5,0"/>
+        <TextBlock x:Name="Output_Right" TextWrapping="NoWrap" Grid.Column="3" Grid.RowSpan="2" Grid.Row="0" Margin="5,0,5,0"/>
     </Grid>
 </Window>
